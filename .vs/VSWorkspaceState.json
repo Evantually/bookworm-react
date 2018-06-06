@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\actions",
     "\\src\\components",
     "\\src\\components\\forms",
     "\\src\\components\\messages",
-    "\\src\\components\\pages"
+    "\\src\\components\\pages",
+    "\\src\\reducers"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\src\\actions\\auth.js",
   "PreviewInSolutionExplorer": false
 }
