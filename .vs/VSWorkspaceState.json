@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\forms",
+    "\\src\\components\\messages",
     "\\src\\components\\pages"
   ],
-  "SelectedNode": "\\src",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
