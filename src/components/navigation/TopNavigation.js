@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Menu, Dropdown, Image, Button } from 'semantic-ui-react';
+import { Menu, Dropdown, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/auth';
@@ -28,7 +28,7 @@ TopNavigation.propTypes = {
 function mapStateToProps(state) {
 	return {
 		user: state.user
-	}
+	};
 }
 
 export default connect(mapStateToProps, { logout: actions.logout })(TopNavigation);
