@@ -6,11 +6,11 @@ import InlineError from '../messages/InlineError';
 class BookForm extends React.Component {
 	state ={
 		data: {
-			goodReadsid: this.props.book.goodReadsid,
+			goodreadsId: this.props.book.goodreadsId,
 			title: this.props.book.title,
 			authors: this.props.book.authors,
 			cover: this.props.book.covers[0],
-			pages:this.props.book.pages
+			pages: this.props.book.pages
 		},
 		covers: this.props.book.covers,
 		index: 0,
@@ -21,13 +21,13 @@ class BookForm extends React.Component {
 	componentWillReceiveProps(props) {
 		this.setState({
 			data: {
-				goodReadsid: this.props.book.goodReadsid,
-				title: this.props.book.title,
-				authors: this.props.book.authors,
-				cover: this.props.book.covers[0],
-				pages:this.props.book.pages
+				goodreadsId: props.book.goodreadsId,
+				title: props.book.title,
+				authors: props.book.authors,
+				cover: props.book.covers[0],
+				pages: props.book.pages
 			},
-			covers: this.props.book.covers
+			covers: props.book.covers
 		});
 	}
 
@@ -78,7 +78,7 @@ class BookForm extends React.Component {
 		if (!data.authors) errors.authors = "Can't be blank";
 		if (!data.pages) errors.pages = "Can't be blank";
 		return errors;
-	}
+	};
 
 	render () {
 		const { errors, data, loading } = this.state;
@@ -86,7 +86,7 @@ class BookForm extends React.Component {
 		return (
 			<Segment>
 				<Form onSubmit={this.onSubmit} loading={loading}>
-					<Grid columns={2} fluid stackable>
+					<Grid columns={2} stackable>
 						<Grid.Row>
 							<Grid.Column>
 								<Form.Field error={!!errors.title}>
@@ -116,10 +116,11 @@ class BookForm extends React.Component {
 								<Form.Field error={!!errors.pages}>
 									<label htmlFor='pages'>Pages</label>
 									<input
-										type='number'
+										disabled={data.pages === undefined }
+										type='text'
 										id='pages'
 										name='pages'
-										value={data.pages}
+										value={data.pages !== undefined ? data.pages : 'Loading...'}
 										onChange={this.onChangeNumber}
 									/>
 									{errors.pages && <InlineError text={errors.pages} />}
@@ -146,7 +147,7 @@ class BookForm extends React.Component {
 BookForm.propTypes = {
 	submit: PropTypes.func.isRequired,
 	book: PropTypes.shape({
-		goodReadsid: PropTypes.string.isRequired,
+		goodreadsId: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
 		authors: PropTypes.string.isRequired,
 		covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,

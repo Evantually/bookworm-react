@@ -42,7 +42,7 @@ class SearchBookForm extends React.Component {
 	onChange = (e, data) => {
 		this.setState({ query: data.value });
 		this.props.onBookSelect(this.state.books[data.value]);
-	}
+	};
 
 	render() {
 		return (
