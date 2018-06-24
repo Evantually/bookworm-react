@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { allCompaniesSelector } from '../../reducers/companies';
-import AddCompanyCtA from '../ctas/AddCompanyCtA';
 import { fetchCompanies } from '../../actions/companies';
 
 class CompaniesPage extends React.Component {
@@ -13,27 +12,47 @@ class CompaniesPage extends React.Component {
 
 	render() {
 		const { companies } = this.props;
+		console.log(companies);
 		return (
 			<div>
-
-				{companies.length === 0 ? 
-					<AddCompanyCtA /> 
-					: 
-					<p></p>
-				}
+				<pre style={{ textAlign: 'left', padding: '1em', border: '1px solid' }}>
+		          {JSON.stringify(companies, null, 2)}
+		        </pre>
 			</div>
 		);
 	}
 }
 
 CompaniesPage.propTypes = {
-	isConfirmed: PropTypes.bool.isRequired,
 	fetchCompanies: PropTypes.func.isRequired,
 	companies: PropTypes.arrayOf(
 		PropTypes.shape({
+			leadContact: PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				title: PropTypes.string.isRequired,
+				email: PropTypes.string.isRequired,
+				phone: PropTypes.string.isRequired,
+				notes: PropTypes.arrayOf(
+					PropTypes.string
+				)
+			}).isRequired,
+			billingAddress: PropTypes.shape({
+				street: PropTypes.string.isRequired,
+				city: PropTypes.string.isRequired,
+				state: PropTypes.string.isRequired,
+				zip: PropTypes.string.isRequired
+			}).isRequired,
+			shippingAddress: PropTypes.shape({
+				street: PropTypes.string.isRequired,
+				city: PropTypes.string.isRequired,
+				state: PropTypes.string.isRequired,
+				zip: PropTypes.string.isRequired
+			}).isRequired,
 			name: PropTypes.string.isRequired,
-
-		}).isRequired
+			industry: PropTypes.string.isRequired,
+			assignedAgent: PropTypes.string.isRequired,
+			userId: PropTypes.objectId
+		})
 	).isRequired
 };
 

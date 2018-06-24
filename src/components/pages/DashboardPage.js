@@ -5,7 +5,6 @@ import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 import { allBooksSelector } from '../../reducers/books';
 import AddBookCtA from '../ctas/AddBookCtA';
 import { fetchBooks } from '../../actions/books';
-import StatisticBox from '../../components/reports/StatisticBox';
 
 class DashboardPage extends React.Component {
 
@@ -15,6 +14,7 @@ class DashboardPage extends React.Component {
 
 	render() {
 		const { isConfirmed, books } = this.props;
+		console.log(books);
 		return (
 			<div>
 				{!isConfirmed && <ConfirmEmailMessage />}
@@ -22,11 +22,7 @@ class DashboardPage extends React.Component {
 				{books.length === 0 ? 
 					<AddBookCtA /> 
 					: 
-					<StatisticBox
-						value={books.length}
-						label='Bookshelf'
-						tooltip='The number of books you have added to your bookshelf!'
-					/>
+					<p></p>
 				}
 			</div>
 		);

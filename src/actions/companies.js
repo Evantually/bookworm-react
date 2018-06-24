@@ -20,4 +20,4 @@ export const fetchCompanies = () => dispatch =>
 export const createCompany = data => dispatch => 
 	api.companies
 		.create(data)
-		.then(company => dispatch(companyCreated(normalize(company, companySchema))));
+		.then(company => dispatch(companyCreated(company)));

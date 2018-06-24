@@ -21,7 +21,6 @@ export default {
 	},
 	companies: {
 		fetchAll: () => axios.get('/api/companies').then(res => res.data.companies),
-		signup: company =>
-			axios.post('/api/companies', { company }).then(res=> res.data.company)
+		create: company => axios.post('/api/companies', { company }).then(res => res.data.company)
 	}
 };

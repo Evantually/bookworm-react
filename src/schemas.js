@@ -5,5 +5,5 @@ export const bookSchema = new schema.Entity(
 );
 
 export const companySchema = new schema.Entity(
-	'companies', {}, { idAttribute: '_id'}
+	'companies', {}, { idAttribute: '_id' }
 );

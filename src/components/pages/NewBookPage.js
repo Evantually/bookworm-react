@@ -34,6 +34,9 @@ class NewBookPage extends React.Component {
 				{this.state.book && (
 					<BookForm submit={this.addBook} book={this.state.book} />
 				)}
+				<pre style={{ textAlign: 'left', padding: '1em', border: '1px solid' }}>
+		          {JSON.stringify(this.state.book, null, 2)}
+		        </pre>
 			</Segment>
 		);
 	}

@@ -6,12 +6,14 @@ import { createCompany } from '../../actions/companies';
 
 class NewCompanyPage extends React.Component {
 
-	submit = (data) => this.props.createCompany(data).then(() => this.props.history.push('/companies'));
+	submit = data => this.props.createCompany(data).then(() => this.props.history.push('/companies'));
+
+
 
 	render() {
 		return (
 			<div>
-				<CompanyForm submit={this.submit}/>
+				<CompanyForm submit={this.submit} />
 			</div>
 		);
 	}
