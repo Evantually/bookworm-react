@@ -7,28 +7,28 @@ import InlineError from '../messages/InlineError';
 class CompanyForm extends React.Component {
 	state = {
 		data: {
-			name: '',
-			industry: '',
-			assignedAgent: '',
+			name: this.props.company.name,
+			industry: this.props.company.industry,
+			assignedAgent: this.props.company.assignedAgent,
 			leadContact: {
-				name: '',
-				title: '',
-				email: '',
-				phone: '',
+				name: this.props.company.leadContact.name,
+				title: this.props.company.leadContact.title,
+				email: this.props.company.leadContact.email,
+				phone: this.props.company.leadContact.phone,
 				notes: []
 			},
 			employees: [],
 			billingAddress: {
-				street: '',
-				city: '',
-				state: '',
-				zip: ''
+				street: this.props.company.billingAddress.street,
+				city: this.props.company.billingAddress.city,
+				state: this.props.company.billingAddress.state,
+				zip: this.props.company.billingAddress.zip
 			},
 			shippingAddress: {
-				street: '',
-				city: '',
-				state: '',
-				zip: ''
+				street: this.props.company.shippingAddress.street,
+				city: this.props.company.shippingAddress.city,
+				state: this.props.company.shippingAddress.state,
+				zip: this.props.company.shippingAddress.zip
 			},
 			notes: [],
 			tasks: []
@@ -36,6 +36,38 @@ class CompanyForm extends React.Component {
 		loading: false,
 		errors: {}
 	};
+
+	componentWillReceiveProps(props) {
+		this.setState({
+			data: {
+				name: props.company.name,
+				industry: props.company.industry,
+				assignedAgent: props.company.assignedAgent,
+				leadContact: {
+					name: props.company.leadContact.name,
+					title: props.company.leadContact.title,
+					email: props.company.leadContact.email,
+					phone: props.company.leadContact.phone,
+					notes: []
+				},
+				employees: [],
+				billingAddress: {
+					street: props.company.billingAddress.street,
+					city: props.company.billingAddress.city,
+					state: props.company.billingAddress.state,
+					zip: props.company.billingAddress.zip
+				},
+				shippingAddress: {
+					street: props.company.shippingAddress.street,
+					city: props.company.shippingAddress.city,
+					state: props.company.shippingAddress.state,
+					zip: props.company.shippingAddress.zip
+				},
+				notes: [],
+				tasks: []
+			}
+		});
+	}
 
 	onChange = e =>
 		this.setState({

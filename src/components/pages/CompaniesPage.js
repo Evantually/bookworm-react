@@ -12,12 +12,13 @@ class CompaniesPage extends React.Component {
 
 	render() {
 		const { companies } = this.props;
-		console.log(companies);
+		var arr = [];
+		Object.keys(companies).forEach(function(key) {
+			arr.push(companies[key]);
+		});
 		return (
 			<div>
-				<pre style={{ textAlign: 'left', padding: '1em', border: '1px solid' }}>
-		          {JSON.stringify(companies, null, 2)}
-		        </pre>
+				
 			</div>
 		);
 	}
