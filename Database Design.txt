@@ -1,0 +1,113 @@
+Database Design
+
+	Company{
+		Name
+		Billing Address {
+			Street
+			City
+			State
+			Zip
+		}
+		Shipping Address {
+			Street
+			City
+			State
+			Zip
+		}
+		Industry
+		Employees {
+			Name
+			Title
+			Contact Phone
+			Contact Email
+			Address - defaults to Company address
+			Orders {
+				id
+			}
+			Tasks - Set reminders
+			Notes
+		}
+		Lead/Customer
+		Assigned Agent
+	}
+		
+	Product Information {
+		id - itemNumber
+		Name
+		Supplier
+		Lead Time
+		Location
+		Price {
+			Click for breakpoints
+			Automatically update with quantity
+		}
+		Quantity
+		Order Minimum
+		Setup Fee
+		Description
+		Image
+	}
+
+	Orders {
+		id - Internal
+		BillTo
+		ShipTo
+		refNum - Customer Reference Number
+		Date
+		Products {
+			id - itemNumber
+			Name
+			Unit Price
+		}
+		Total Cost
+		Sale Price
+		Tax
+		Freight Cost
+	}
+
+	Internal Employees {
+		id
+		Name
+		Sales {
+			Order id - Internal
+			Company
+			Date
+			Commission
+			Sale Price
+		}
+	}
+
+Functionality
+	
+	If logged in:
+		Request image/design for customization button
+	If not logged in:
+		Create user/guest contact info option
+			Create lead until first order placed
+			Acceptance of receiving informational emails
+	Add user logins
+
+
+Reports
+	
+	Template: https://powerbicdn.azureedge.net/mediahandler/blog/media/PowerBI/blog/8b862ee1-0b8c-4c12-b80c-ce8baffc63d9.jpg
+
+	Needs:
+		Each report should have date filtering available
+
+		Sales volume by channel (industry)
+		Sales volume by agent
+		Sales volume by date
+		Sales volume by product
+		Net profit by channel (industry)
+		Net profit by agent
+		Net profit by date
+		Net profit by product
+		Number of orders by channel (industry)
+		Number of orders by agent
+		Number of orders by date
+		Tax Owed
+
+	Wants:
+		Conversion Rate
+		Length of time between orders by customer

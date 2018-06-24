@@ -10,6 +10,7 @@ const TopNavigation = ({ user, logout, hasBooks }) => (
 	<Menu secondary pointing>
 		<Menu.Item as={Link} to='/dashboard'>Dashboard</Menu.Item>
 		{hasBooks && <Menu.Item as={Link} to='/books/new'>Add New Book</Menu.Item>}
+		<Menu.Item as={Link} to='/companies/new'>Add New Company</Menu.Item>
 		<Menu.Menu position='right'>
 			<Dropdown trigger={<Button>Trigger</Button>}>
 				<Dropdown.Menu>

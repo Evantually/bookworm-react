@@ -5,11 +5,13 @@ import { Route } from 'react-router-dom';
 import HomePage from './components/pages/HomePage';
 import LoginPage from './components/pages/LoginPage';
 import DashboardPage from './components/pages/DashboardPage';
+import CompaniesPage from './components/pages/CompaniesPage';
 import SignupPage from './components/pages/SignupPage';
 import ConfirmationPage from './components/pages/ConfirmationPage';
 import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
 import NewBookPage from './components/pages/NewBookPage';
+import NewCompanyPage from './components/pages/NewCompanyPage';
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
 import TopNavigation from './components/navigation/TopNavigation';
@@ -24,7 +26,9 @@ const App = ({ location, isAuthenticated }) => (
 		<GuestRoute location={location} path="/forgot_password" exact component={ForgotPasswordPage} />
 		<GuestRoute location={location} path="/reset_password/:token" exact component={ResetPasswordPage} />
 		<UserRoute location={location} path="/dashboard" exact component={DashboardPage} />
+		<UserRoute location={location} path="/companies" exact component={CompaniesPage} />
 		<UserRoute location={location} path="/books/new" exact component={NewBookPage} />
+		<UserRoute location={location} path="/companies/new" exact component={NewCompanyPage} />
 	</div>
 );
 

@@ -21,3 +21,4 @@ export const createBook = data => dispatch =>
 	api.books
 		.create(data)
 		.then(book => dispatch(bookCreated(normalize(book, bookSchema))));
+

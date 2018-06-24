@@ -10,7 +10,7 @@ import { createBook } from '../../actions/books';
 class NewBookPage extends React.Component {
 	state = {
 		book: null
-	}
+	};
 
 	onBookSelect = book => {
 		this.setState({ book });
